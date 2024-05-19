@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather/core/widgets/splash_widget.dart';
-import 'package:weather/core/widgets/loading_indicator_widget.dart';
+import 'package:weather/core/widgets/loading_widget.dart';
 import 'package:weather/core/widgets/logo_widget.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -17,7 +17,7 @@ class SplashViewBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const LogoWidget(),
-              LoadingIndicatorWidget(strokeWidth: 3.5.h),
+              LoadingWidget(strokeWidth: 3.5.h),
             ],
           ),
         ),

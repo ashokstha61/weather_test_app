@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:weather/core/utils/app_colors.dart';
 
-class LoadingIndicatorWidget extends StatelessWidget {
+class LoadingWidget extends StatelessWidget {
   final double strokeWidth;
   final Color color;
 
-  const LoadingIndicatorWidget(
+  const LoadingWidget(
       {Key? key, this.strokeWidth = 4.0, this.color = AppColors.white})
       : super(key: key);
 
