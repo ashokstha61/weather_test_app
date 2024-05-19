@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:weather/core/utils/app_colors.dart';
-import 'package:weather/core/utils/app_strings.dart';
 import 'package:weather/core/utils/app_styles.dart';
+import 'package:weather/core/utils/constants.dart';
 import 'package:weather/feature/home/presentation/views/widgets/home_view_body.dart';
 import 'package:weather/feature/home/presentation/views/widgets/location_button.dart';
 
@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
-          AppStrings.weather,
+          Constants.weather,
           style: AppStyles.textStyle25.copyWith(
             color: AppColors.black,
           ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/core/animations/page_fade_transition.dart';
 import 'package:weather/core/animations/page_slide_transition.dart';
-import 'package:weather/core/utils/app_strings.dart';
+import 'package:weather/core/utils/constants.dart';
 import 'package:weather/core/utils/service_locator.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 import 'package:weather/feature/home/data/repository/home_repository_implementation.dart';
@@ -81,7 +81,7 @@ class AppRoutes {
     return MaterialPageRoute(
       builder: ((context) => const Scaffold(
             body: Center(
-              child: Text(AppStrings.noRouteFound),
+              child: Text(Constants.noRouteFound),
             ),
           )),
     );

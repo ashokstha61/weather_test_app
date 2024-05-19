@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather/config/icons/icons_broken.dart';
 import 'package:weather/config/routes/app_routes.dart';
 import 'package:weather/core/utils/app_colors.dart';
-import 'package:weather/core/utils/app_strings.dart';
 import 'package:weather/core/utils/app_styles.dart';
+import 'package:weather/core/utils/constants.dart';
 
 class SearchTextField extends StatefulWidget {
   const SearchTextField({Key? key}) : super(key: key);
@@ -45,7 +45,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
           hintMaxLines: 1,
-          hintText: AppStrings.search,
+          hintText: Constants.search,
           hintStyle: AppStyles.textStyle16.copyWith(
             color: AppColors.grey,
           ),
