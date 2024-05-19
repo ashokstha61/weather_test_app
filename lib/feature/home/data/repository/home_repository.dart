@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:weather/core/errors/failures.dart';
+import 'package:weather/core/errors/error.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 
 abstract class HomeRepository {
-  Future<Either<Failure, WeatherModel>> fetchWeatherByCityName({
+  Future<Either<Error, WeatherModel>> fetchWeatherByCityName({
     required String cityName,
   });
 
-  Future<Either<Failure, WeatherModel>> fetchWeatherByUserLocation({
+  Future<Either<Error, WeatherModel>> fetchWeatherByUserLocation({
     required String latitude,
     required String longitude,
   });
@@ -26,7 +26,7 @@ abstract class HomeRepository {
   //   required String weatherNameFour,
   //   required String weatherNameFive,
   // });
-  Future<Either<Failure, List<WeatherModel>>> fetchWeatherForFortyCity({
+  Future<Either<Error, List<WeatherModel>>> fetchWeatherForFortyCity({
     required List<String> weatherCitiesName,
   });
 }

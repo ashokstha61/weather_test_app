@@ -12,7 +12,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
   List<String> titles = [
     'Discover the weather in your city and plan your day correctly',
     'You can know the weather by your location',
-    'You can know the weather for seven days and for every hour throughout the day',
+    'You can know the weather for seven days',
   ];
 
   bool isLast = false;

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:weather/core/api/api_services.dart';
 import 'package:weather/core/api/data.dart';
-import 'package:weather/core/errors/failures.dart';
+import 'package:weather/core/errors/error.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 import 'package:weather/feature/home/data/repository/home_repository.dart';
 
@@ -10,7 +10,7 @@ class HomeRepositoryImplementation implements HomeRepository {
   final ApiServices apiServices;
   const HomeRepositoryImplementation(this.apiServices);
   @override
-  Future<Either<Failure, WeatherModel>> fetchWeatherByCityName(
+  Future<Either<Error, WeatherModel>> fetchWeatherByCityName(
       {required String cityName}) async {
     try {
       Map<String, dynamic> data = await apiServices.get(
@@ -25,15 +25,15 @@ class HomeRepositoryImplementation implements HomeRepository {
       return Right(weatherModel);
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure.fromDioError(error));
+        return Left(ServerError.fromDioError(error));
       } else {
-        return Left(ServerFailure(error.toString()));
+        return Left(ServerError(error.toString()));
       }
     }
   }
 
   @override
-  Future<Either<Failure, WeatherModel>> fetchWeatherByUserLocation({
+  Future<Either<Error, WeatherModel>> fetchWeatherByUserLocation({
     required String latitude,
     required String longitude,
   }) async {
@@ -50,16 +50,16 @@ class HomeRepositoryImplementation implements HomeRepository {
       return Right(weatherModel);
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure.fromDioError(error));
+        return Left(ServerError.fromDioError(error));
       } else {
-        return Left(ServerFailure(error.toString()));
+        return Left(ServerError(error.toString()));
       }
     }
   }
 
 
   @override
-  Future<Either<Failure, List<WeatherModel>>> fetchWeatherForFortyCity({
+  Future<Either<Error, List<WeatherModel>>> fetchWeatherForFortyCity({
     required List<String> weatherCitiesName,
   }) async {
     try {
@@ -78,9 +78,9 @@ class HomeRepositoryImplementation implements HomeRepository {
       return Right(weatherCities);
     } catch (error) {
       if (error is DioError) {
-        return Left(ServerFailure.fromDioError(error));
+        return Left(ServerError.fromDioError(error));
       } else {
-        return Left(ServerFailure(error.toString()));
+        return Left(ServerError(error.toString()));
       }
     }
   }
