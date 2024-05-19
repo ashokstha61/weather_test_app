@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:weather/core/utils/app_assets.dart';
+import 'package:weather/core/utils/path_assets.dart';
 
 class LogoWidget extends StatelessWidget {
   const LogoWidget({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      AppAssets.logo,
+      PathAssets.logo,
       width: 240.w,
       height: 215.h,
     );
