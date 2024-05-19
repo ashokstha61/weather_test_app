@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather/core/utils/app_colors.dart';
 import 'package:weather/core/widgets/gradient_container_widget.dart';
 
-class BackgroundWidget extends StatelessWidget {
-  const BackgroundWidget({Key? key, this.child}) : super(key: key);
+class SplashWidget extends StatelessWidget {
+  const SplashWidget({Key? key, this.child}) : super(key: key);
 
   final Widget? child;
 

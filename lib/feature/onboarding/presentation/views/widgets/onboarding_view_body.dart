@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather/core/utils/constants.dart';
-import 'package:weather/core/widgets/background_widget.dart';
 import 'package:weather/core/widgets/logo_widget.dart';
+import 'package:weather/core/widgets/splash_widget.dart';
 import 'package:weather/feature/onboarding/presentation/views/widgets/container_details_widget.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
@@ -10,7 +10,7 @@ class OnBoardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackgroundWidget(
+    return SplashWidget(
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(
