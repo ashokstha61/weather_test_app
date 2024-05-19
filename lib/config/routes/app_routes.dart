@@ -5,7 +5,7 @@ import 'package:weather/core/animations/page_slide_transition.dart';
 import 'package:weather/core/utils/constants.dart';
 import 'package:weather/core/utils/service_locator.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
-import 'package:weather/feature/home/data/repository/home_repository_implementation.dart';
+import 'package:weather/feature/home/data/repository/home_repository.dart';
 import 'package:weather/feature/home/presentation/cubits/weather_cubit/weather_cubit.dart';
 import 'package:weather/feature/home/presentation/views/details_view.dart';
 import 'package:weather/feature/home/presentation/views/home_view.dart';
@@ -52,7 +52,7 @@ class AppRoutes {
         return PageFadeTransition(
           page: BlocProvider(
             create: (context) => WeatherCubit(
-              getIt.get<HomeRepositoryImplementation>(),
+              getIt.get<HomeRepository>(),
             ),
             child: const HomeView(),
           ),
@@ -63,7 +63,7 @@ class AppRoutes {
           direction: AxisDirection.left,
           page: BlocProvider(
             create: (context) => WeatherCubit(
-              getIt.get<HomeRepositoryImplementation>(),
+              getIt.get<HomeRepository>(),
             ),
             child: DetailsView(
               cityName: arguments!.cityName ?? '',

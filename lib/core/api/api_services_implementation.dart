@@ -1,8 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:weather/core/api/api_services.dart';
 import 'package:weather/core/api/data.dart';
 
-
+abstract class ApiServices {
+  Future<Map<String, dynamic>> get({
+    required String endPoint,
+    required Map<String, dynamic> queryParameters,
+  });
+}
 class ApiServicesImplementation implements ApiServices {
   Dio _dio=Dio();
   ApiServicesImplementation() {
