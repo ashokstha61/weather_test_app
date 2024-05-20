@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather/core/utils/app_colors.dart';
 import 'package:weather/core/utils/app_styles.dart';
 
-class SecondaryWeatherDetailsSectionItem extends StatelessWidget {
-  const SecondaryWeatherDetailsSectionItem({
+class WeatherDetailsSectionItem extends StatelessWidget {
+  const WeatherDetailsSectionItem({
     Key? key,
     required this.icon,
     required this.title,

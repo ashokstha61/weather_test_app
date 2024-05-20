@@ -12,7 +12,8 @@ class DetailsView extends StatefulWidget {
     Key? key,
     this.cityName,
     this.latitude,
-    this.longitude, this.weatherModel,
+    this.longitude,
+    this.weatherModel,
   }) : super(key: key);
 
   final String? cityName;
@@ -25,7 +26,6 @@ class DetailsView extends StatefulWidget {
 }
 
 class _DetailsViewState extends State<DetailsView> {
-
   @override
   void initState() {
     if (widget.cityName!.isNotEmpty) {
@@ -67,9 +67,9 @@ class _DetailsViewState extends State<DetailsView> {
           } else if (state is CommonLoadingState) {
             return const ShimmerDetailsView();
           } else {
-              return DetailsViewBody(
-                weatherModel: widget.weatherModel!,
-              );
+            return DetailsViewBody(
+              weatherModel: widget.weatherModel!,
+            );
           }
         },
       ),

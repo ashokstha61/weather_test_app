@@ -53,7 +53,7 @@ class DetailsPageView extends StatelessWidget {
                 weatherModel: weatherModel,
                 index: index,
               ),
-              SecondaryWeatherDetailsSection(
+              WeatherDetailsSection(
                 weatherModel: weatherModel,
                 index: index,
               ),
