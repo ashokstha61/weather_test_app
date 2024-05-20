@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/core/utils/constants.dart';
-import 'package:weather/feature/home/presentation/views/widgets/search_text_field.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/search_text_field.dart';
 
 
 class HomeViewBody extends StatelessWidget {

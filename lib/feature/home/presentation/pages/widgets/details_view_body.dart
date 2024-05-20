@@ -3,7 +3,7 @@ import 'package:weather/core/utils/app_colors.dart';
 import 'package:weather/core/utils/constants.dart';
 import 'package:weather/core/widgets/page_indicator_widget.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
-import 'package:weather/feature/home/presentation/views/widgets/details_page_view.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/details_page_view.dart';
 
 class DetailsViewBody extends StatefulWidget {
   const DetailsViewBody({Key? key, required this.weatherModel})

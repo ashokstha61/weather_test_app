@@ -7,8 +7,9 @@ import 'package:weather/core/utils/service_locator.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 import 'package:weather/feature/home/data/repository/home_repository.dart';
 import 'package:weather/feature/home/presentation/cubits/weather_cubit/weather_cubit.dart';
-import 'package:weather/feature/home/presentation/views/details_view.dart';
-import 'package:weather/feature/home/presentation/views/home_view.dart';
+
+import 'package:weather/feature/home/presentation/pages/home_view.dart';
+import 'package:weather/feature/home/presentation/pages/details_view.dart';
 import 'package:weather/feature/onBoarding/presentation/cubit/onBoarding_cubit.dart';
 import 'package:weather/feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:weather/feature/splash/presentation/views/splash_view.dart';
@@ -69,7 +70,7 @@ class AppRoutes {
               cityName: arguments!.cityName ?? '',
               latitude: arguments.latitude ?? '',
               longitude: arguments.longitude ?? '',
-              weatherModel: arguments.weatherModel ?? const WeatherModel(),
+              weatherModel: arguments.weatherModel ?? WeatherModel(),
             ),
           ),
         );

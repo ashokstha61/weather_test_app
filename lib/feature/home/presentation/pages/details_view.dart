@@ -5,7 +5,7 @@ import 'package:weather/core/widgets/details_error_widget.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 import 'package:weather/feature/home/presentation/cubits/weather_cubit/weather_cubit.dart';
 import 'package:weather/feature/home/presentation/cubits/weather_cubit/weather_state.dart';
-import 'package:weather/feature/home/presentation/views/widgets/details_view_body.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/details_view_body.dart';
 
 class DetailsView extends StatefulWidget {
   const DetailsView({

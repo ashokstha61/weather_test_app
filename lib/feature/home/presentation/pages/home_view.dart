@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:weather/core/utils/app_colors.dart';
 import 'package:weather/core/utils/app_styles.dart';
 import 'package:weather/core/utils/constants.dart';
-import 'package:weather/feature/home/presentation/views/widgets/home_view_body.dart';
-import 'package:weather/feature/home/presentation/views/widgets/location_button.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/home_view_body.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/location_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);

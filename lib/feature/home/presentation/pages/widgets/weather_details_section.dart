@@ -6,7 +6,7 @@ import 'package:weather/core/utils/app_colors.dart';
 import 'package:weather/core/utils/constants.dart';
 import 'package:weather/core/widgets/custom_divider_widget.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
-import 'package:weather/feature/home/presentation/views/widgets/weather_details_section_item.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/weather_details_section_item.dart';
 
 class SecondaryWeatherDetailsSection extends StatelessWidget {
   const SecondaryWeatherDetailsSection({

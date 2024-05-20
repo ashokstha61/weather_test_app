@@ -4,9 +4,9 @@ import 'package:weather/core/functions/change_gradient_color.dart';
 import 'package:weather/core/utils/app_styles.dart';
 import 'package:weather/core/widgets/gradient_container_widget.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
-import 'package:weather/feature/home/presentation/views/widgets/basic_weather_details_section.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/basic_weather_details_section.dart';
 import 'package:weather/core/widgets/app_bar_widget.dart';
-import 'package:weather/feature/home/presentation/views/widgets/weather_details_section.dart';
+import 'package:weather/feature/home/presentation/pages/widgets/weather_details_section.dart';
 
 class DetailsPageView extends StatelessWidget {
   const DetailsPageView({

@@ -1,15 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:weather/core/api/api_services_implementation.dart';
+import 'package:weather/core/api/api_services.dart';
 import 'package:weather/core/api/data.dart';
 import 'package:weather/core/errors/error.dart';
 import 'package:weather/feature/home/data/models/weather_model/weather_model.dart';
 
-
-class HomeRepository  {
+class HomeRepository {
   final ApiServices apiServices;
   const HomeRepository(this.apiServices);
- 
+
   Future<Either<Error, WeatherModel>> fetchWeatherByCityName(
       {required String cityName}) async {
     try {
@@ -31,7 +30,6 @@ class HomeRepository  {
       }
     }
   }
-
 
   Future<Either<Error, WeatherModel>> fetchWeatherByUserLocation({
     required String latitude,
@@ -57,7 +55,6 @@ class HomeRepository  {
     }
   }
 
-
   Future<Either<Error, List<WeatherModel>>> fetchWeatherForFortyCity({
     required List<String> weatherCitiesName,
   }) async {
@@ -72,7 +69,7 @@ class HomeRepository  {
             'days': 7,
           },
         );
-          weatherCities.add(WeatherModel.fromJson(data));
+        weatherCities.add(WeatherModel.fromJson(data));
       }
       return Right(weatherCities);
     } catch (error) {

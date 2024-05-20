@@ -7,9 +7,10 @@ abstract class ApiServices {
     required Map<String, dynamic> queryParameters,
   });
 }
-class ApiServicesImplementation implements ApiServices {
-  Dio _dio=Dio();
-  ApiServicesImplementation() {
+
+class ApiImplementation implements ApiServices {
+  Dio _dio = Dio();
+  ApiImplementation() {
     BaseOptions baseOptions = BaseOptions(
       baseUrl: Data.baseUrl,
       receiveDataWhenStatusError: true,
