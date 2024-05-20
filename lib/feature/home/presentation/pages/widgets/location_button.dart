@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:geolocator/geolocator.dart';
+
 import 'package:weather/config/icons/icons_broken.dart';
 import 'package:weather/config/routes/app_routes.dart';
 import 'package:weather/core/utils/app_colors.dart';
