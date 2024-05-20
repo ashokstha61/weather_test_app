@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather/config/icons/icons_broken.dart';
 import 'package:weather/config/routes/app_routes.dart';
 import 'package:weather/core/utils/app_colors.dart';
-import 'package:weather/core/utils/get_current_location.dart';
+
 import '../../../../../core/utils/constants.dart';
 
 class LocationButton extends StatelessWidget {
@@ -16,17 +16,13 @@ class LocationButton extends StatelessWidget {
       padding: EdgeInsets.only(right: Constants.defaultPadding),
       child: GestureDetector(
         onTap: () async {
-          if (determinePosition() != null) {
-            final location = await determinePosition().then((location) {
-              Navigator.pushNamed(context, Routes.detailsView,
-                  arguments: ScreenArguments(
-                    latitude: location.longitude.toString(),
-                    longitude: location.longitude.toString(),
-                  ));
-            });
-          } else {
-            return Future.error('location not found');
-          }
+          await determinePosition().then((location) {
+            Navigator.pushNamed(context, Routes.detailsView,
+                arguments: ScreenArguments(
+                  latitude: location.longitude.toString(),
+                  longitude: location.longitude.toString(),
+                ));
+          });
         },
         child: CircleAvatar(
           radius: 16.h,
