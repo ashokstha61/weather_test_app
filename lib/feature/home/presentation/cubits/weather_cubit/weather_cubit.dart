@@ -5,6 +5,7 @@ import 'package:weather/feature/home/data/models/weather_model/weather_model.dar
 import 'package:weather/feature/home/data/repository/home_repository.dart';
 import 'package:weather/feature/home/presentation/cubits/weather_cubit/weather_state.dart';
 
+import '../../../../../config/local/weather_cache_manager.dart';
 
 class WeatherCubit extends Cubit<CommonState> {
   WeatherCubit(this.homeRepository) : super(CommonInitialState());
@@ -17,16 +18,50 @@ class WeatherCubit extends Cubit<CommonState> {
     required String cityName,
   }) async {
     emit(CommonLoadingState());
-    Either<Error, WeatherModel> result =
-        await homeRepository.fetchWeatherByCityName(cityName: cityName);
-    result.fold(
-      (failure) {
-        emit(CommonErrorState(failure.error));
-      },
-      (weather) {
-        emit(CommonSuccessState(weather));
-      },
-    );
+    // final isCacheValid = await WeatherCacheManager.isCacheValid();
+    // if (isCacheValid) {
+    //   final cachedWeather = await WeatherCacheManager.getCachedWeatherData();
+    //   if (cachedWeather != null) {
+    //     emit(CommonSuccessState(cachedWeather));
+    //     return;
+    //   }
+    // }
+    try {
+      Either<Error, WeatherModel> result =
+          await homeRepository.fetchWeatherByCityName(cityName: cityName);
+      result.fold(
+        (failure) async {
+          final isCacheValid = await WeatherCacheManager.isCacheValid();
+          if (isCacheValid) {
+            final cachedWeather =
+                await WeatherCacheManager.getCachedWeatherData();
+            if (cachedWeather != null) {
+              emit(CommonSuccessState(cachedWeather));
+            } else {
+              emit(CommonErrorState(failure.error));
+            }
+          } else {
+            emit(CommonErrorState(failure.error));
+          }
+        },
+        (weather) async {
+          await WeatherCacheManager.cacheWeatherData(weather);
+          emit(CommonSuccessState(weather));
+        },
+      );
+    } catch (e) {
+      final isCacheValid = await WeatherCacheManager.isCacheValid();
+      if (isCacheValid) {
+        final cachedWeather = await WeatherCacheManager.getCachedWeatherData();
+        if (cachedWeather != null) {
+          emit(CommonSuccessState(cachedWeather));
+        } else {
+          emit(CommonErrorState('Failed to fetch weather data.'));
+        }
+      } else {
+        emit(CommonErrorState('Failed to fetch weather data.'));
+      }
+    }
   }
 
   Future<void> fetchWeatherByUserLocation({
@@ -34,18 +69,67 @@ class WeatherCubit extends Cubit<CommonState> {
     required String longitude,
   }) async {
     emit(CommonLoadingState());
-    Either<Error, WeatherModel> result =
-        await homeRepository.fetchWeatherByUserLocation(
-      latitude: latitude,
-      longitude: longitude,
-    );
-    result.fold(
-      (failure) {
-        emit(CommonErrorState(failure.error));
-      },
-      (weather) {
-        emit(CommonSuccessState(weather));
-      },
-    );
+    // final isCacheValid = await WeatherCacheManager.isCacheValid();
+    // if (isCacheValid) {
+    //   final cachedWeather = await WeatherCacheManager.getCachedWeatherData();
+    //   if (cachedWeather != null) {
+    //     emit(CommonSuccessState(cachedWeather));
+    //     return;
+    //   }
+    // }
+    try {
+      Either<Error, WeatherModel> result =
+          await homeRepository.fetchWeatherByUserLocation(
+        latitude: latitude,
+        longitude: longitude,
+      );
+
+      result.fold(
+        (failure) async {
+          final isCacheValid = await WeatherCacheManager.isCacheValid();
+          if (isCacheValid) {
+            final cachedWeather =
+                await WeatherCacheManager.getCachedWeatherData();
+            if (cachedWeather != null) {
+              emit(CommonSuccessState(cachedWeather));
+            } else {
+              emit(CommonErrorState(failure.error));
+            }
+          } else {
+            emit(CommonErrorState(failure.error));
+          }
+        },
+        (weather) async {
+          await WeatherCacheManager.cacheWeatherData(weather);
+          emit(CommonSuccessState(weather));
+        },
+      );
+    } catch (e) {
+      final isCacheValid = await WeatherCacheManager.isCacheValid();
+      if (isCacheValid) {
+        final cachedWeather = await WeatherCacheManager.getCachedWeatherData();
+        if (cachedWeather != null) {
+          emit(CommonSuccessState(cachedWeather));
+        } else {
+          emit(CommonErrorState('Failed to fetch weather data.'));
+        }
+      } else {
+        emit(CommonErrorState('Failed to fetch weather data.'));
+      }
+    }
+    // Either<Error, WeatherModel> result =
+    //     await homeRepository.fetchWeatherByUserLocation(
+    //   latitude: latitude,
+    //   longitude: longitude,
+    // );
+    // result.fold(
+    //   (failure) {
+    //     emit(CommonErrorState(failure.error));
+    //   },
+    //   (weather) async {
+    //     await WeatherCacheManager.cacheWeatherData(weather);
+    //     emit(CommonSuccessState(weather));
+    //   },
+    // );
   }
 }

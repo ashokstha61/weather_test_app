@@ -56,16 +56,6 @@ class _DetailsViewState extends State<DetailsView> {
             );
           } else if (state is CommonLoadingState) {
             return const ShimmerDetailsView();
-          } else if (state is CommonSuccessState) {
-            return DetailsViewBody(
-              weatherModel: state.weatherModel,
-            );
-          } else if (state is CommonErrorState) {
-            return DetailsErrorWidget(
-              error: state.error,
-            );
-          } else if (state is CommonLoadingState) {
-            return const ShimmerDetailsView();
           } else {
             return DetailsViewBody(
               weatherModel: widget.weatherModel!,
