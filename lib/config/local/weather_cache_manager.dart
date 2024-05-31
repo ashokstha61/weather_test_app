@@ -7,7 +7,7 @@ class WeatherCacheManager {
   static const String _cacheTimeKey = 'cacheTime';
   static const Duration cacheDuration = Duration(minutes: 5);
 
-  // Save weather data to cache
+  
   static Future<void> cacheWeatherData(WeatherModel weatherModel) async {
     final pref = await SharedPreferences.getInstance();
     final weatherJson = jsonEncode(weatherModel.toJson());
@@ -15,7 +15,7 @@ class WeatherCacheManager {
     await pref.setString(_cacheTimeKey, DateTime.now().toIso8601String());
   }
 
-  // Get cached weather data
+  
   static Future<WeatherModel?> getCachedWeatherData() async {
     final pref = await SharedPreferences.getInstance();
     final weatherJson = pref.getString(_weatherCacheKey);
@@ -26,7 +26,7 @@ class WeatherCacheManager {
     return null;
   }
 
-  // Check if cache is valid
+  
   static Future<bool> isCacheValid() async {
     final pref = await SharedPreferences.getInstance();
     final cacheTimeString = pref.getString(_cacheTimeKey);
